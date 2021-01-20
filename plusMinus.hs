@@ -13,5 +13,3 @@ solve xs = [p, n, z]
 
 main :: IO ()
 main =  interact $ unlines . map (printf "%6f") . solve . map read . tail . words
-
---TODO make the floats 6 decimal length
