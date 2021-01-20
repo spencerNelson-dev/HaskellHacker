@@ -21,3 +21,9 @@ solve72 = head . minimumBy (flip compare `on` length) . group . sort
 solve8 :: [Int] -> Int 
 solve8 = sum . map (\xs -> length xs `div` 2) . group . sort
 
+printPounds :: Int -> String 
+printPounds 0 = ""
+printPounds x = "#" ++ printPounds (x - 1)
+
+solvePound :: Int -> String
+solvePound x = unlines $ map printPounds [1..x]
