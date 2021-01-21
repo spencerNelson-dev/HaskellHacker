@@ -33,3 +33,6 @@ paddWithSpaces x str
 
 solvePound :: Int -> String
 solvePound x = unlines $ map (paddWithSpaces x . printPounds) [1..x]
+
+combinations :: Int -> [a] -> [[a]]
+combinations k ns = filter ((k==).length) $ subsequences ns
