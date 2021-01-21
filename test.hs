@@ -25,5 +25,11 @@ printPounds :: Int -> String
 printPounds 0 = ""
 printPounds x = "#" ++ printPounds (x - 1)
 
+paddWithSpaces :: Int -> String -> String
+paddWithSpaces x str
+    | length str < x = paddWithSpaces x (' ':str)
+    | otherwise = str
+
+
 solvePound :: Int -> String
-solvePound x = unlines $ map printPounds [1..x]
+solvePound x = unlines $ map (paddWithSpaces x . printPounds) [1..x]
