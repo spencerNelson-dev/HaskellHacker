@@ -36,3 +36,11 @@ solvePound x = unlines $ map (paddWithSpaces x . printPounds) [1..x]
 
 combinations :: Int -> [a] -> [[a]]
 combinations k ns = filter ((k==).length) $ subsequences ns
+
+getPairs :: [Int] -> [[Int]]
+getPairs [] = []
+getPairs (x:xs) = [x] : getPairs xs
+
+funt :: [Int] -> [[Int]]
+funt [] = []
+funt (x:xs) = map (\y -> [x,y]) xs ++ funt xs
